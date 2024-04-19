@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Typography, Box, Container, Grid, Button,  Card } from '@mui/material';
+import { Typography, Box, Container, Grid, Button,  Card, CardMedia, CardContent, } from '@mui/material';
 import { FaReact, FaNodeJs, FaStripeS } from 'react-icons/fa';
 import { RiJavascriptLine } from "react-icons/ri";
 import { TbBrandPython,TbBrandVite,TbBrandTypescript } from "react-icons/tb";
 import { SiFirebase, SiRedis,SiMui,SiChakraui } from "react-icons/si";
 import { DiGoogleCloudPlatform } from "react-icons/di";
-
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { red } from '@mui/material/colors';
 function App() {
   
   // Define skills with useState for future updates
@@ -24,11 +26,26 @@ function App() {
     { name: 'Stripe', icon: <FaStripeS /> },
   ]);
 
+  const [projects] = useState([
+    {
+      name: 'medcheck',
+      description: 'Interpret medical analysis results using AI.',
+      image: 'src/assets/images/project1.png',
+    },
+    {
+      name: 'DivusAI',
+      description: 'Create, Generate and Chat with virtual AI characters.',
+      image: 'src/assets/images/project2.png',
+    },
+  ]);
+
   return (
-    <Container>
-      <Box sx={{ py: 4, textAlign: 'center' }}>
-        <Card sx={{ padding: 2, borderRadius: 6, boxShadow: 3 }}>
-          <Typography variant="h5" component="h1" gutterBottom>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor:'black' }}>
+      <Header/>
+      <Container sx={{ flex: '1 0 auto' }}>
+      <Box sx={{ py: 4, textAlign: 'center',  }}>
+        <Card sx={{ padding: 2, borderRadius: 6, bgcolor:'grey.900', color:'white', borderColor:red[900],}}>
+          <Typography variant="h5" component="h1" gutterBottom color={red[900]}>
             Filan Fisteku
           </Typography>
           <Typography variant="h3" component="h2" gutterBottom>
@@ -39,7 +56,7 @@ function App() {
           </Typography>
         </Card>
   
-        <Typography variant="h5" mt={4} component="h2" gutterBottom>
+        <Typography variant="h5" mt={4} component="h2" color={'white'} gutterBottom>
           Most used tools
         </Typography>
         <Grid container spacing={2} justifyContent="center">
@@ -52,9 +69,12 @@ function App() {
               variant="outlined"
               sx={{
                 justifyContent:'start',
-                color:'black',
+                borderRadius:3,
+                bgcolor:'grey.900',
+                color:'white',
                 fontWeight:'bold',
-                borderColor:'black',
+                borderColor: 'black',
+                ":hover":{borderColor:'red'},
                 width: { xs: '100%'},
                 height: { xs: '40px' }
               }}
@@ -64,8 +84,38 @@ function App() {
           </Grid>
         ))}
       </Grid>
+
+      <Typography variant="h5" mt={4} component="h2" color={'white'} gutterBottom>
+  Projects
+</Typography>
+<Grid container spacing={2} justifyContent="center">
+  {projects.map((project, index) => (
+    <Grid item key={index}>
+      <Card sx={{ maxWidth:500, bgcolor:'grey.900', color:'white' }}>
+        <CardMedia
+          component="img"
+          height="220"
+          sx={{objectFit:'contain'}}
+          image={project.image}
+          alt={project.name}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {project.name}
+          </Typography>
+          <Typography variant="body2" color="grey.300">
+            {project.description}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  ))}
+</Grid>
+
       </Box>
-    </Container>
+      </Container>
+      <Footer />
+    </Box>
   );
 }
 
