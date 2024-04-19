@@ -42,18 +42,6 @@ npm run dev
 
 Now you can open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## Deployment
-
-This project can be easily deployed to any static file hosting service. Here is an example of deploying it to [Netlify](https://www.netlify.com/):
-
-1. Build the project:
-
-```bash
-npm run build
-```
-
-2. Deploy the `dist` directory to Netlify.
-
 ## Contact
 
 If you want to contact me, you can reach me at [@gmail.com](mailto:@gmail.com).
