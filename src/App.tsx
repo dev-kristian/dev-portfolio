@@ -86,31 +86,31 @@ function App() {
       </Grid>
 
       <Typography variant="h5" mt={4} component="h2" color={'white'} gutterBottom>
-  Projects
-</Typography>
-<Grid container spacing={2} justifyContent="center">
-  {projects.map((project, index) => (
-    <Grid item key={index}>
-      <Card sx={{ maxWidth:500, bgcolor:'grey.900', color:'white' }}>
-        <CardMedia
-          component="img"
-          height="220"
-          sx={{objectFit:'contain'}}
-          image={project.image}
-          alt={project.name}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {project.name}
-          </Typography>
-          <Typography variant="body2" color="grey.300">
-            {project.description}
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-  ))}
-</Grid>
+        Projects
+      </Typography>
+      <Grid container spacing={2} justifyContent="center">
+        {projects.map((project, index) => (
+          <Grid item key={index}>
+            <Card sx={{ maxWidth:500, bgcolor:'grey.900', color:'white' }}>
+              <CardMedia
+                component="img"
+                height="220"
+                sx={{objectFit:'contain'}}
+                image={project.image}
+                alt={project.name}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {project.name}
+                </Typography>
+                <Typography variant="body2" color="grey.300">
+                  {project.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
 
       </Box>
       </Container>
