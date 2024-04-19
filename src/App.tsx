@@ -8,6 +8,9 @@ import { DiGoogleCloudPlatform } from "react-icons/di";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { red } from '@mui/material/colors';
+import project1 from './assets/images/project1.png';
+import project2 from './assets/images/project2.png';
+
 function App() {
   
   // Define skills with useState for future updates
@@ -30,14 +33,15 @@ function App() {
     {
       name: 'medcheck',
       description: 'Interpret medical analysis results using AI.',
-      image: 'src/assets/images/project1.png',
+      image: project1,
     },
     {
       name: 'DivusAI',
       description: 'Create, Generate and Chat with virtual AI characters.',
-      image: 'src/assets/images/project2.png',
+      image: project2,
     },
   ]);
+  
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor:'black' }}>
