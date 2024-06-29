@@ -50,7 +50,7 @@ function App() {
       <Box sx={{ py: 4, textAlign: 'center',  }}>
         <Card sx={{ padding: 2, borderRadius: 6, bgcolor:'grey.900', color:'white', borderColor:red[900],}}>
           <Typography variant="h5" component="h1" gutterBottom color={red[900]}>
-            Filan Fisteku
+            Kristian Aleksi
           </Typography>
           <Typography variant="h3" component="h2" gutterBottom>
             Full-Stack Web Developer
