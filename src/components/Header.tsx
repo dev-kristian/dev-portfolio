@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
+import { Link } from 'react-scroll';
 
 const Header: React.FC = () => (
   <AppBar position="sticky" sx={{ 
@@ -11,6 +12,8 @@ const Header: React.FC = () => (
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         Kristian Aleksi
       </Typography>
+      <Link to="skills" smooth={true} duration={500}>Skills</Link>
+      <Link to="projects" smooth={true} duration={500}>Projects</Link>
     </Toolbar>
   </AppBar>
 );
