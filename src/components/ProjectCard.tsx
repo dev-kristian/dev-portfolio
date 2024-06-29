@@ -7,7 +7,7 @@ interface Project {
   name: string;
   description: string;
   image: string;
-  details: string;
+  details: JSX.Element;
   liveDemo: string;
   github: string;
 }
@@ -22,7 +22,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
     <Card 
       onClick={() => onClick(project)}
       sx={{ 
-        maxWidth: 345,
+        width: '100%', 
+        borderRadius: 4, 
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
@@ -38,7 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
     >
       <CardMedia
         component="img"
-        height="200"
+        height="300"
         image={project.image}
         alt={project.name}
         sx={{ objectFit: 'cover' }}

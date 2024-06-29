@@ -10,7 +10,7 @@ const Header: React.FC = () => (
   }}>
     <Toolbar>
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        Kristian Aleksi
+        Kristian 
       </Typography>
       <Link to="skills" smooth={true} duration={500}>Skills</Link>
       <Link to="projects" smooth={true} duration={500}>Projects</Link>
