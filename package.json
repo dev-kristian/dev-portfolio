@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "react-scripts build && npm run build:functions",
+    "build:functions": "netlify-lambda build netlify/functions",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -15,6 +16,7 @@
     "@mui/icons-material": "^5.15.21",
     "@mui/material": "^5.15.15",
     "framer-motion": "^11.2.12",
+    "nodemailer": "^6.9.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",

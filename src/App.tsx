@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
 import ProjectCard from './components/ProjectCard';
-import ContactForm from './components/ContactForm';
 import SkillsSection from './components/SkillsSection';
 import EnhancedIntro from './components/EnhancedIntro';
 import ModernContactSection from './components/ModernContactSection';

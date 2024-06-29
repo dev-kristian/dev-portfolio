@@ -9,6 +9,7 @@ import {
   Paper,
   useTheme,
   Snackbar,
+  CircularProgress,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Send as SendIcon } from '@mui/icons-material';
@@ -16,6 +17,8 @@ import { Send as SendIcon } from '@mui/icons-material';
 const ModernContactSection: React.FC = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,12 +33,31 @@ const ModernContactSection: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setOpen(true);
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setOpen(true);
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err) {
+      setError('Failed to send message. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -68,6 +90,7 @@ const ModernContactSection: React.FC = () => {
                   onChange={handleChange}
                   required
                   variant="outlined"
+                  disabled={isLoading}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -80,6 +103,7 @@ const ModernContactSection: React.FC = () => {
                   onChange={handleChange}
                   required
                   variant="outlined"
+                  disabled={isLoading}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -93,6 +117,7 @@ const ModernContactSection: React.FC = () => {
                   onChange={handleChange}
                   required
                   variant="outlined"
+                  disabled={isLoading}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -101,7 +126,8 @@ const ModernContactSection: React.FC = () => {
                   variant="contained"
                   color="primary"
                   size="large"
-                  endIcon={<SendIcon />}
+                  endIcon={isLoading ? <CircularProgress size={24} color="inherit" /> : <SendIcon />}
+                  disabled={isLoading}
                   sx={{
                     mt: 2,
                     px: 4,
@@ -110,7 +136,7 @@ const ModernContactSection: React.FC = () => {
                     textTransform: 'none',
                   }}
                 >
-                  Send Message
+                  {isLoading ? 'Sending...' : 'Send Message'}
                 </Button>
               </Grid>
             </Grid>
@@ -122,6 +148,12 @@ const ModernContactSection: React.FC = () => {
         autoHideDuration={6000}
         onClose={() => setOpen(false)}
         message="Message sent successfully!"
+      />
+      <Snackbar
+        open={!!error}
+        autoHideDuration={6000}
+        onClose={() => setError(null)}
+        message={error}
       />
     </Box>
   );
