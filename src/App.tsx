@@ -1,22 +1,23 @@
 // App.tsx
 import { useState } from 'react';
-import { Typography, Box, Container, Grid, Card, ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import { red } from '@mui/material/colors';
+import { Typography, Box, Container, Grid, ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
 import ProjectCard from './components/ProjectCard';
 import ContactForm from './components/ContactForm';
 import SkillsSection from './components/SkillsSection';
+import EnhancedIntro from './components/EnhancedIntro';
+import ModernContactSection from './components/ModernContactSection';
+
 import project1 from './assets/images/project1.png';
 import project2 from './assets/images/project2.png';
-
 // Define the Project interface
 interface Project {
   name: string;
   description: string;
   image: string;
-  details: JSX.Element; // Updated to JSX.Element
+  details: JSX.Element;
   liveDemo: string;
   github: string;
 }
@@ -111,23 +112,13 @@ function App() {
       <CssBaseline />
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
+        <EnhancedIntro />  
         <Container sx={{ flex: '1 0 auto' }}>
           <Box sx={{ py: 4 }}>
-            <Card sx={{ p: 4, borderRadius: 4, bgcolor: 'grey.900', color: 'white', borderColor: red[900], mb: 6 }}>
-              <Typography variant="h5" component="h1" gutterBottom color={red[900]}>
-                Kristian
-              </Typography>
-              <Typography variant="h3" component="h2" gutterBottom>
-                Full-Stack Web Developer
-              </Typography>
-              <Typography variant="body1">
-                Development of responsive, functional and beautiful web applications that please their users, using the best practices and techniques in the market.
-              </Typography>
-            </Card>
 
             <SkillsSection />
-
-            <Typography variant="h4" mt={8} mb={4} color="white" textAlign="center">
+            
+            <Typography variant="h4" mt={8} mb={4} color="white" textAlign="center" id="projects">
               Projects
             </Typography>
             <Grid container spacing={8} justifyContent="center">
@@ -141,10 +132,8 @@ function App() {
               ))}
             </Grid>
 
-            <Typography variant="h4" mt={8} mb={4} color="white" textAlign="center">
-              Contact Me
-            </Typography>
-            <ContactForm />
+            <ModernContactSection />
+
           </Box>
         </Container>
         <Footer />
