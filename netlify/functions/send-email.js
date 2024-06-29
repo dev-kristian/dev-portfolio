@@ -9,9 +9,9 @@ exports.handler = async function(event, context) {
 
   // Create a transporter using SMTP
   let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',  // Replace with your SMTP host
+    host: 'smtp.gmail.com', 
     port: 587,
-    secure: false, // Use TLS
+    secure: true,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
@@ -22,7 +22,7 @@ exports.handler = async function(event, context) {
     // Send email
     await transporter.sendMail({
       from: `"Contact Form" <${process.env.EMAIL_USER}>`,
-      to: 'ffissteku@gmail.com',  // Replace with your email
+      to: 'ffissteku@gmail.com',  
       subject: 'New Contact Form Submission',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: `<p><strong>Name:</strong> ${name}</p>
