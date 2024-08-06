@@ -1,4 +1,3 @@
-// App.tsx
 import { useState } from 'react';
 import { Typography, Box, Container, Grid, ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import Header from './components/Header';
@@ -11,6 +10,8 @@ import ModernContactSection from './components/ModernContactSection';
 
 import project1 from './assets/images/project1.png';
 import project2 from './assets/images/project2.png';
+import project3 from './assets/images/project3.png';
+
 // Define the Project interface
 interface Project {
   name: string;
@@ -93,6 +94,35 @@ function App() {
       ),
       liveDemo: 'https://divusai.com',
       github: 'https://github.com/dev-kristian/divusai-client',
+    },
+    {
+      name: 'Newsify',
+      description: 'Advanced news aggregation system with article clustering capabilities. Combines web scraping, data processing, and intelligent grouping of related content.',
+      image: project3,
+      details: (
+        <Box>
+          <Typography variant="body1" paragraph>
+            Newsify is a sophisticated news aggregation and analysis platform that leverages multiple technologies to provide users with a comprehensive and organized view of current events. By combining web scraping, data processing, and machine learning, Newsify offers a unique way to explore and understand the news landscape across various sources.
+          </Typography>
+          <Typography variant="body2" component="div">
+            <strong>Key Features:</strong>
+            <ul>
+              <li>Modular Architecture: Utilizes separate components for scraping (Python/Scrapy), data processing (Python), and serving articles (Node.js), ensuring efficient and scalable operations.</li>
+              <li>Python-based Web Scraping: Employs Scrapy, a powerful Python framework, to efficiently collect articles from multiple news websites, ensuring a diverse and up-to-date news feed.</li>
+              <li>Intelligent Article Clustering: Implements clustering algorithms in Python to group related articles, allowing users to explore different perspectives on the same topic.</li>
+              <li>Node.js Backend: A robust Node.js server handles article storage and retrieval, providing a fast and efficient API for the front-end application.</li>
+              <li>Real-time Updates: Continuously scrapes and processes new articles, ensuring users always have access to the latest information.</li>
+              <li>Customizable Categories: Allows users to filter news by categories, making it easy to focus on topics of interest.</li>
+              <li>Search Functionality: Implements a powerful search feature to find specific articles or topics within the aggregated content.</li>
+            </ul>
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Newsify streamlines the process of staying informed in today's fast-paced news environment. By automating the collection, processing, and organization of news articles, it saves users time and provides valuable insights into how different sources are covering important events. The project showcases advanced skills in full-stack development, data processing, and machine learning applications in real-world scenarios.
+          </Typography>
+        </Box>
+      ),
+      liveDemo: 'https://kazanify.netlify.app', // Replace with actual demo URL when available
+      github: 'https://github.com/dev-kristian/newsify-client', // Replace with actual GitHub repo
     }
   ]);
 
@@ -112,7 +142,7 @@ function App() {
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
         <EnhancedIntro />  
-        <Container sx={{ flex: '1 0 auto' }}>
+        <Container maxWidth={'xl'}>
           <Box sx={{ py: 4 }}>
 
             <SkillsSection />
@@ -120,9 +150,9 @@ function App() {
             <Typography variant="h4" mt={8} mb={4} color="white" textAlign="center" id="projects">
               Projects
             </Typography>
-            <Grid container spacing={8} justifyContent="center">
+            <Grid container spacing={4} justifyContent="center">
               {projects.map((project, index) => (
-                <Grid item xs={12} sm={6} md={4} xl={6} key={index}>
+                <Grid item xs={12} sm={6} md={6} key={index}>
                   <ProjectCard 
                     project={project} 
                     onClick={() => handleProjectClick(project)}

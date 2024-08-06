@@ -62,6 +62,7 @@ const ModernContactSection: React.FC = () => {
 
   return (
     <Box
+      id="contact-section"
       component={motion.div}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}

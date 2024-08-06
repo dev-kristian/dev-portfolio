@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "netlify/functions/send-email.js"],
+  "include": ["src", "netlify/functions/send-email.mts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
