@@ -64,8 +64,8 @@ function App() {
           </Typography>
         </Box>
       ),
-      liveDemo: 'https://medcheck.bio',
-      github: 'https://github.com/dev-kristian/medcheck.bio-frontend',
+      liveDemo: 'https://medcheck-next.vercel.app',
+      github: 'https://github.com/dev-kristian/medcheck.bio',
     },
     {
       name: 'DivusAI',
