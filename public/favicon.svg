@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Kristian portfolio">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --fg: #ffffff;
+      --accent: #1d4ed8;
+      --muted: #93c5fd;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #f8fafc;
+        --fg: #0a0a0a;
+        --accent: #60a5fa;
+        --muted: #1d4ed8;
+      }
+    }
+  </style>
+  <rect width="64" height="64" rx="14" fill="var(--bg)" />
+  <path d="M20 23 12 32l8 9" fill="none" stroke="var(--muted)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="m44 23 8 9-8 9" fill="none" stroke="var(--muted)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M27 18v28" fill="none" stroke="var(--fg)" stroke-width="6" stroke-linecap="round" />
+  <path d="M31 32 43 19M31 32l13 13" fill="none" stroke="var(--fg)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="16" y="52" width="32" height="4" rx="2" fill="var(--accent)" />
+</svg>
